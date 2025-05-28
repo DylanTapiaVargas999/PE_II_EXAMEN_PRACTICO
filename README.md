@@ -23,6 +23,6 @@ Esta herramienta facilita la planificación estratégica con una interfaz simple
 
 ## Imágenes
 
-(img/1.png)
-(img/2.png)
-(img/3.png)
+![Textarea Mejorado](img/1.png)
+![Textarea Mejorado](img/2.png)
+![Textarea Mejorado](img/3.png)
