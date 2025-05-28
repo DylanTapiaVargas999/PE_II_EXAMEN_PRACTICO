@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.32-MariaDB - mariadb.org binary distribution
+-- Versión del servidor:         10.4.27-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             12.10.0.7000
+-- HeidiSQL Versión:             12.4.0.6659
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -188,6 +188,21 @@ CREATE TABLE IF NOT EXISTS `estrategia` (
 
 -- La exportación de datos fue deseleccionada.
 
+-- Volcando estructura para tabla bd_plan.estrategias
+CREATE TABLE IF NOT EXISTS `estrategias` (
+  `id_estrategia` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(100) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `fo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`fo`)),
+  `af` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`af`)),
+  `od` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`od`)),
+  `ad` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`ad`)),
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_estrategia`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- La exportación de datos fue deseleccionada.
+
 -- Volcando estructura para tabla bd_plan.explotar
 CREATE TABLE IF NOT EXISTS `explotar` (
   `id_explotar` int(11) NOT NULL AUTO_INCREMENT,
@@ -352,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `plan_estrategico` (
   PRIMARY KEY (`id`),
   KEY `FK__usuario` (`id_usuario`),
   CONSTRAINT `FK__usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- La exportación de datos fue deseleccionada.
 
@@ -408,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `imagen` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uq_correo` (`correo`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- La exportación de datos fue deseleccionada.
 

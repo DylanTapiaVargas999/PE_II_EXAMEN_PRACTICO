@@ -119,7 +119,7 @@
                 <ul class="menu-list">
                     <li class="menu-item">
                         <i class="fas fa-chess-queen"></i>
-                        <a href="#">10. Estrategias</a>
+                        <a href="<?=base_url?>estrategias/index">10. Estrategias</a>
                     </li>
                     <li class="menu-item">
                         <i class="fas fa-table"></i>
