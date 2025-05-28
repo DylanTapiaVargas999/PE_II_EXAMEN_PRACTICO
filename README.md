@@ -22,10 +22,6 @@ Esta página web permite capturar y puntuar fortalezas, oportunidades, debilidad
 Esta herramienta facilita la planificación estratégica con una interfaz simple y funcional.
 
 ## Imágenes
-<<<<<<< HEAD
-
-=======
->>>>>>> d12eebea5d1be5b6f8b161ce30c27c69e5ef2a53
 ![Textarea Mejorado](img/1.png)
 ![Textarea Mejorado](img/2.png)
 ![Textarea Mejorado](img/3.png)
