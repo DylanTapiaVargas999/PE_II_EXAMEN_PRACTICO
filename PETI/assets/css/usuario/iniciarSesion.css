@@ -1,0 +1,438 @@
+/* VARIABLES GLOBALES - PALETA ACTUALIZADA */
+:root {
+    --color-fondo: #1a1a2e; /* Azul marino oscuro */
+    --color-fondo-secundario: #16213e; /* Azul marino más claro */
+    --color-texto: #e6e6e6; /* Gris claro para texto */
+    --color-texto-secundario: #b8b8b8;
+    --color-acento: #4cc9f0; /* Azul brillante para botones */
+    --color-acento-secundario: #f72585; /* Rosa para hover */
+    --color-borde: #4a4e69; /* Borde gris azulado */
+    --color-error: #ef233c; /* Rojo para errores */
+    --color-success: #06d6a0; /* Verde para éxito */
+    --color-warning: #ffd166; /* Amarillo/naranja para advertencias */
+    --sombra: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --sombra-hover: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ESTILOS BASE */
+body {
+    background: linear-gradient(135deg, var(--color-fondo), var(--color-fondo-secundario));
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--color-texto);
+}
+
+/* PATRÓN GEOMÉTRICO SUTIL DE FONDO */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(76, 201, 240, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 75% 75%, rgba(247, 37, 133, 0.05) 0%, transparent 20%);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.auth-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 750px;
+    background: rgba(26, 26, 46, 0.8); /* Fondo semitransparente */
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    display: flex;
+    min-height: 600px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 78, 105, 0.3);
+}
+
+/* PANELES DE FORMULARIO */
+.panel-formulario {
+    width: 50%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.6s ease-in-out;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.panel-izquierdo {
+    left: 0;
+    transform: translateX(0);
+    background: rgba(22, 33, 62, 0.6);
+}
+
+.panel-derecho {
+    left: 50%;
+    transform: translateX(100%);
+    background: rgba(22, 33, 62, 0.6);
+}
+
+.auth-container.panel-registro-activo .panel-izquierdo {
+    transform: translateX(-100%);
+}
+
+.auth-container.panel-registro-activo .panel-derecho {
+    transform: translateX(0);
+}
+
+/* CONTENEDOR DE FORMULARIO */
+.formulario-box {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.formulario-box h2 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 28px;
+    position: relative;
+    text-align: center;
+}
+
+.formulario-box h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-acento);
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+/* GRUPOS DE FORMULARIO */
+.grupo-formulario {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--color-texto);
+    transition: all 0.3s ease;
+}
+
+.grupo-formulario input {
+    width: 100%;
+    padding: 15px 20px 15px 45px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background: rgba(26, 26, 46, 0.5);
+    color: var(--color-texto);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grupo-formulario input:focus {
+    border-color: var(--color-acento);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.3);
+}
+
+/* ICONOS EN LOS INPUTS */
+.grupo-formulario::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 38px;
+    color: var(--color-texto-secundario);
+    z-index: 1;
+}
+
+.grupo-formulario:nth-child(1)::before {
+    content: "\f007"; /* Icono de usuario */
+}
+
+.grupo-formulario:nth-child(2)::before {
+    content: "\f023"; /* Icono de candado */
+}
+
+/* CONTENEDOR DE CONTRASEÑA */
+.password-container {
+    position: relative;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-texto-secundario);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.password-container .toggle-password:hover {
+    color: var(--color-acento);
+}
+
+/* INDICADOR DE FUERZA DE CONTRASEÑA */
+.password-strength {
+    height: 4px;
+    margin-top: 8px;
+    border-radius: 4px;
+    background: var(--color-borde);
+    overflow: hidden;
+    position: relative;
+}
+
+.password-strength::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.strength-0::after { width: 20%; background: var(--color-error); }
+.strength-1::after { width: 40%; background: #ff6b6b; }
+.strength-2::after { width: 60%; background: var(--color-warning); }
+.strength-3::after { width: 80%; background: #48dbfb; }
+.strength-4::after { width: 100%; background: var(--color-success); }
+
+/* BOTONES */
+.boton {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-acento);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boton:hover {
+    background: var(--color-acento-secundario);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover);
+}
+
+/* CONTROLES PARA ALTERNAR */
+.controles-alternar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background: rgba(22, 33, 62, 0.8);
+    border-top: 1px solid rgba(74, 78, 105, 0.5);
+}
+
+.boton-alternar {
+    background: none;
+    border: none;
+    color: var(--color-acento);
+    cursor: pointer;
+    font-size: 15px;
+    padding: 8px 16px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.boton-alternar:hover {
+    color: var(--color-acento-secundario);
+    transform: translateY(-2px);
+}
+
+.boton-alternar span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* ELEMENTOS ADICIONALES */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-texto-secundario);
+}
+
+.forgot-password {
+    color: var(--color-acento);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: var(--color-acento-secundario);
+    text-decoration: underline;
+}
+
+.terms-conditions {
+    margin: 15px 0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-texto-secundario);
+}
+
+.terms-conditions a {
+    color: var(--color-acento);
+    transition: color 0.3s ease;
+}
+
+.terms-conditions a:hover {
+    color: var(--color-acento-secundario);
+}
+
+/* ALERTAS */
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    position: relative;
+    padding-left: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 20px;
+}
+
+.alert-danger {
+    background: rgba(239, 35, 60, 0.1);
+    color: var(--color-error);
+    border: 1px solid rgba(239, 35, 60, 0.3);
+}
+
+.alert-danger::before {
+    content: "\f06a"; /* Icono de exclamación */
+    color: var(--color-error);
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.formulario-box {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* BARRA DE PROGRESO (PARA CARGA) */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--color-borde);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 20px;
+    display: none;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0;
+    background: var(--color-acento);
+    transition: width 0.4s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .auth-container {
+        flex-direction: column;
+        min-height: auto;
+        height: auto;
+    }
+    
+    .panel-formulario {
+        width: 100%;
+        position: relative;
+        left: 0;
+        transform: none !important;
+        padding: 50px 30px;
+    }
+    
+    .panel-derecho {
+        display: none;
+    }
+    
+    .auth-container.panel-registro-activo .panel-izquierdo {
+        display: none;
+    }
+    
+    .auth-container.panel-registro-activo .panel-derecho {
+        display: flex;
+    }
+    
+    .controles-alternar {
+        position: static;
+        margin-top: 20px;
+        box-shadow: none;
+        background: transparent;
+        padding: 20px 0 0;
+        border: none;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
+    }
+    
+    .panel-formulario {
+        padding: 40px 20px;
+    }
+    
+    .formulario-box {
+        max-width: 100%;
+    }
+    
+    .grupo-formulario input {
+        padding: 12px 15px 12px 40px;
+    }
+}

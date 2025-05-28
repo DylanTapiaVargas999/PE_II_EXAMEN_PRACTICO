@@ -1,0 +1,37 @@
+/* ----------------------------- */
+/* VARIABLES GLOBALES (THEME)    */
+/* ----------------------------- */
+:root {
+    --color-fondo: #33333A; /* Fondo oscuro para la barra lateral */
+    --color-texto: white; /* Color de texto principal */
+    --color-acento: #f7af51; /* Color de acento para botones y enlaces */
+    --color-hover: #d9903d; /* Color de hover para elementos interactivos */
+    --color-borde: #ccc; /* Color de borde para separadores */
+}
+
+/* ----------------------------- */
+/* ESTILOS GENERALES             */
+/* ----------------------------- */
+body {
+    margin: 0; /* Elimina el margen predeterminado del navegador */
+    font-family: Arial, sans-serif; /* Fuente principal */
+}
+
+/* ----------------------------- */
+/* LAYOUT PRINCIPAL              */
+/* ----------------------------- */
+.parent {
+    display: grid; /* Usa CSS Grid para organizar el layout */
+    grid-template-columns: 250px 1fr; /* Barra lateral fija y contenido dinámico */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+/* ----------------------------- */
+/* CONTENIDO PRINCIPAL           */
+/* ----------------------------- */
+.main-content {
+    background-color: #f4f4f4; /* Fondo claro */
+    padding: 50px; /* Espaciado interno */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es largo */
+}
+
