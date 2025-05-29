@@ -1,7 +1,8 @@
 # Identificación de Estrategias - Matriz Cruzada FO, AF, OD, AD
-Alumno : Dylan Yariet Tapia Vargas 
-Codigo: 2021072630
-Repositorio https://github.com/DylanTapiaVargas999/PE_II_EXAMEN_PRACTICO
+- Alumno : Dylan Yariet Tapia Vargas 
+- Codigo: 2021072630
+- Fecha 28/05/2025
+- Repositorio https://github.com/DylanTapiaVargas999/PE_II_EXAMEN_PRACTICO
 
 Esta página web permite capturar y puntuar fortalezas, oportunidades, debilidades y amenazas (FODA) para identificar estrategias empresariales usando matrices cruzadas FO, AF, OD y AD.
 
